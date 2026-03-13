@@ -1,0 +1,1 @@
+export { deleteCommand } from './delete';
