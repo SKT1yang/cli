@@ -25,6 +25,7 @@
 
 		// 类型定义与全局类型
 		"skipLibCheck": true, // 跳过对声明文件的类型检查，加快编译速度
+		"types": ["bun-types"], // 添加 Bun 的类型定义
 
 		// 输出与调试
 		"sourceMap": true // 生成源映射文件，便于调试

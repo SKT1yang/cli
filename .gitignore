@@ -4,6 +4,9 @@ node_modules/
 # Build output
 dist/
 
+# Test temporary directory
+test-temp/
+
 # Editor directories and files
 .idea/
 
