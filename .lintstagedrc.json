@@ -1,0 +1,4 @@
+{
+	"*.{ts,tsx,js,jsx}": ["oxlint -c oxlint.config.json", "oxfmt --write -c oxfmt.config.json"],
+	"*.{json,jsonc}": ["oxfmt --write -c oxfmt.config.json"]
+}
