@@ -12,5 +12,5 @@ const output: RolldownOptions['output'] = {
 export default defineConfig({
 	input: './src/index.ts',
 	output,
-	platform: 'node'
+	platform: 'node',
 });

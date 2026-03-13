@@ -1,34 +1,34 @@
 {
-  "compilerOptions": {
-    // 基础环境与目标设置
-    "target": "ES2022", // 编译输出为 ES2022，支持该版本的新特性
-    "lib": ["es2022", "esnext.disposable", "DOM"], // 包含的类型定义：ES2022 标准库、显式资源管理、DOM API
-    "module": "esnext", // 使用最新的 ECMAScript 模块规范
-    "moduleResolution": "Bundler", // 与打包工具（如 Vite、Webpack）兼容的模块解析策略
+	"compilerOptions": {
+		// 基础环境与目标设置
+		"target": "ES2022", // 编译输出为 ES2022，支持该版本的新特性
+		"lib": ["es2022", "esnext.disposable", "DOM"], // 包含的类型定义：ES2022 标准库、显式资源管理、DOM API
+		"module": "esnext", // 使用最新的 ECMAScript 模块规范
+		"moduleResolution": "Bundler", // 与打包工具（如 Vite、Webpack）兼容的模块解析策略
 
-    // 类型检查与严格性
-    "strict": true, // 启用所有严格类型检查选项
-    "noFallthroughCasesInSwitch": true, // 禁止 switch 语句的 case 穿透
-    "noImplicitOverride": true, // 要求覆盖父类方法时显式使用 override 关键字
-    "noImplicitReturns": true, // 检查所有分支都必须显式返回值
-    "noUnusedLocals": true, // 允许未使用的局部变量（便于调试/原型开发）
-    "allowUnreachableCode": false, // ❌ 禁止不可达代码
-    "exactOptionalPropertyTypes": false, // 关闭可选属性精确类型检查（保持默认宽松）
-    "useUnknownInCatchVariables": false, // 捕获的异常变量默认为 any 类型（与 strict 默认行为相反）
-    "forceConsistentCasingInFileNames": true, // 强制文件引用路径的大小写一致
+		// 类型检查与严格性
+		"strict": true, // 启用所有严格类型检查选项
+		"noFallthroughCasesInSwitch": true, // 禁止 switch 语句的 case 穿透
+		"noImplicitOverride": true, // 要求覆盖父类方法时显式使用 override 关键字
+		"noImplicitReturns": true, // 检查所有分支都必须显式返回值
+		"noUnusedLocals": true, // 允许未使用的局部变量（便于调试/原型开发）
+		"allowUnreachableCode": false, // ❌ 禁止不可达代码
+		"exactOptionalPropertyTypes": false, // 关闭可选属性精确类型检查（保持默认宽松）
+		"useUnknownInCatchVariables": false, // 捕获的异常变量默认为 any 类型（与 strict 默认行为相反）
+		"forceConsistentCasingInFileNames": true, // 强制文件引用路径的大小写一致
 
-    // 模块互操作与扩展
-    "esModuleInterop": true, // 增强与 CommonJS 模块的互操作性
-    "resolveJsonModule": true, // 允许直接导入 JSON 文件
-    "isolatedModules": true, // 确保每个文件可独立编译（适用于 Babel/esbuild）
-    "allowSyntheticDefaultImports": true, // ✅ 允许合成默认导入
+		// 模块互操作与扩展
+		"esModuleInterop": true, // 增强与 CommonJS 模块的互操作性
+		"resolveJsonModule": true, // 允许直接导入 JSON 文件
+		"isolatedModules": true, // 确保每个文件可独立编译（适用于 Babel/esbuild）
+		"allowSyntheticDefaultImports": true, // ✅ 允许合成默认导入
 
-    // 类型定义与全局类型
-    "skipLibCheck": true, // 跳过对声明文件的类型检查，加快编译速度
+		// 类型定义与全局类型
+		"skipLibCheck": true, // 跳过对声明文件的类型检查，加快编译速度
 
-    // 输出与调试
-    "sourceMap": true // 生成源映射文件，便于调试
-  },
-  "include": ["src", "rolldown.config.ts"],
-  "exclude": ["node_modules"]
+		// 输出与调试
+		"sourceMap": true // 生成源映射文件，便于调试
+	},
+	"include": ["src", "rolldown.config.ts"],
+	"exclude": ["node_modules"]
 }

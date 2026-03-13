@@ -1,49 +1,56 @@
 {
-  "name": "@shuiyangsuan/cli",
-  "version": "0.0.1",
-  "description": "A personal CLI tool for common tasks",
-  "type": "module",
-  "main": "./dist/index.js",
-  "bin": {
-    "by": "./dist/index.js"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
-    }
-  },
-  "scripts": {
-    "dev": "rolldown -c rolldown.config.ts --watch",
-    "build": "rolldown -c rolldown.config.ts",
-    "prepublishOnly": "npm run build",
-    "test": "bun run src/index.ts delete --help"
-  },
-  "keywords": [
-    "cli",
-    "delete",
-    "file-management"
-  ],
-  "author": "yangguodong",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "dependencies": {
-    "commander": "14.0.3",
-    "fast-glob": "3.3.3"
-  },
-  "devDependencies": {
-    "@types/node": "25.5.0",
-    "rolldown": "latest",
-    "typescript": "5.9.3"
-  },
-  "engines": {
-    "node": ">=24.0.0"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ]
+	"name": "@shuiyangsuan/cli",
+	"version": "0.0.1",
+	"description": "A personal CLI tool for common tasks",
+	"keywords": [
+		"cli",
+		"delete",
+		"file-management"
+	],
+	"license": "MIT",
+	"author": "yangguodong",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"bin": {
+		"by": "./dist/index.js"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"type": "module",
+	"main": "./dist/index.js",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"default": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"dev": "rolldown -c rolldown.config.ts --watch",
+		"build": "rolldown -c rolldown.config.ts",
+		"prepublishOnly": "npm run build",
+		"test": "bun run src/index.ts delete --help",
+		"lint": "oxlint -c oxlint.config.json",
+		"fmt": "oxfmt --write -c oxfmt.config.json",
+		"prepare": "husky"
+	},
+	"dependencies": {
+		"commander": "14.0.3",
+		"fast-glob": "3.3.3"
+	},
+	"devDependencies": {
+		"@types/node": "25.5.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.3.3",
+		"oxfmt": "^0.40.0",
+		"oxlint": "^1.55.0",
+		"rolldown": "latest",
+		"typescript": "5.9.3"
+	},
+	"engines": {
+		"node": ">=24.0.0"
+	}
 }

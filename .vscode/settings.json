@@ -1,24 +1,12 @@
 {
-	"editor.formatOnSave": true,
+	"oxc.configPath": "oxlint.config.json",
+	"oxc.fmt.configPath": "oxfmt.config.json",
+	"oxc.typeAware": true,
+	"oxc.unusedDisableDirectives": "deny",
 	"editor.defaultFormatter": "oxc.oxc-vscode",
-	"[typescript]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"[javascriptreact]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"[json]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"[jsonc]": {
-		"editor.defaultFormatter": "oxc.oxc-vscode"
-	},
-	"files.eol": "\n",
-	"files.insertFinalNewline": true
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "file", // oxfmt can only format whole files
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "never" // let oxfmt handle import organization
+	}
 }
