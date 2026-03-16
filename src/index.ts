@@ -1,3 +1,4 @@
+import type { CliConfig } from './config/types';
 import { Command } from 'commander';
 import { deleteCommand } from './commands/index.js';
 import { readConfig } from './config/index.js';
@@ -13,3 +14,5 @@ program.name('shuiyangsuan').description('个人 CLI 工具 - 支持文件和文
 deleteCommand(program, config);
 
 program.parse();
+
+export { CliConfig };

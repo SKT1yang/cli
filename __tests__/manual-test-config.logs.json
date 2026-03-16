@@ -1,0 +1,21 @@
+{
+	"name": "日志文件清理测试",
+	"description": "测试删除各种日志文件的场景",
+	"files": {
+		"logs/access.log": "2024-01-01 10:00:00 GET /api/users\n2024-01-01 10:01:00 POST /api/login",
+		"logs/error.log": "2024-01-01 10:05:00 ERROR: Database connection failed\n2024-01-01 10:06:00 ERROR: Timeout",
+		"logs/debug.log": "Debug info line 1\nDebug info line 2",
+		"logs/.gitkeep": "",
+		"src/index.ts": "// Main source file\nconsole.log('Hello');",
+		"src/utils/helper.ts": "// Helper utilities\nexport const add = (a, b) => a + b;",
+		"README.md": "# Project Documentation",
+		"package.json": "{\n  \"name\": \"test\"\n}"
+	},
+	"patterns": ["logs/*.log"],
+	"options": {
+		"force": true,
+		"dryRun": false,
+		"verbose": true
+	},
+	"cleanupAfter": true
+}

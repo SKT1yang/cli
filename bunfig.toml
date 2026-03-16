@@ -1,9 +1,9 @@
 [test]
 # 测试根目录
-root = "./src"
+root = "./"
 
 # 测试文件匹配模式
 coverageDir = "./src"
 
-# 排除的目录
-exclude = ["**/node_modules/**", "**/dist/**", "**/.git/**"]
+# 覆盖率报告忽略的模式
+coveragePathIgnorePatterns = ["**/node_modules/**", "**/dist/**", "**/.git/**"]

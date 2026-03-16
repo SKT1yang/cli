@@ -1,0 +1,20 @@
+{
+	"name": "自定义测试场景示例",
+	"description": "这是一个配置文件的示例，展示如何自定义测试文件和删除模式",
+	"files": {
+		"example.txt": "这是一个示例文件内容",
+		"data.json": "{\"key\": \"value\", \"number\": 123}",
+		"logs/app.log": "日志文件内容\n第二行日志\n第三行日志",
+		"logs/error.log": "错误日志内容",
+		"cache": ["cached-item-1.txt", "cached-item-2.txt"],
+		"src/utils/helper.ts": "// Helper functions\nexport const helper = () => {};",
+		"src/index.ts": "// Main entry\nimport { helper } from './utils/helper';"
+	},
+	"patterns": ["*.log", "cache"],
+	"options": {
+		"force": true,
+		"dryRun": false,
+		"verbose": true
+	},
+	"cleanupAfter": true
+}

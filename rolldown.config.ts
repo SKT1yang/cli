@@ -1,16 +1,17 @@
 import { defineConfig, type RolldownOptions } from 'rolldown';
+import { dts } from 'rolldown-plugin-dts';
 
 const output: RolldownOptions['output'] = {
 	sourcemap: true,
 	format: 'es',
-	banner: `"use strict";\n`,
 	minify: false,
 	cleanDir: true,
-	file: 'dist/index.js',
+	dir: 'dist',
 };
 
 export default defineConfig({
 	input: './src/index.ts',
 	output,
+	plugins: [dts()],
 	platform: 'node',
 });

@@ -30,6 +30,6 @@
 		// 输出与调试
 		"sourceMap": true // 生成源映射文件，便于调试
 	},
-	"include": ["src", "rolldown.config.ts"],
+	"include": ["src", "rolldown.config.ts", "__tests__"],
 	"exclude": ["node_modules"]
 }
