@@ -35,7 +35,7 @@
 	"scripts": {
 		"dev": "rolldown -c rolldown.config.ts --watch",
 		"build": "rolldown -c rolldown.config.ts",
-		"prepublishOnly": "pnpm check && pnpm build && npm run patch",
+		"prepublishOnly": "pnpm check && pnpm build && npm version patch",
 		"test": "bun test",
 		"check": "pnpm lint && pnpm fmt",
 		"lint": "oxlint -c oxlint.config.json",
