@@ -14,7 +14,7 @@
 		"url": ""
 	},
 	"bin": {
-		"by": "./dist/index.js"
+		"by": "./dist/cli.js"
 	},
 	"files": [
 		"dist",

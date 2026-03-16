@@ -2,9 +2,9 @@ import { Command } from 'commander';
 import fg from 'fast-glob';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
-import { log, error, warn, success, info } from '../utils/logger.js';
-import { deleteFile, deleteDir, isDirectory } from '../utils/file.js';
-import type { CliConfig } from '../config/types.js';
+import { log, error, warn, success, info } from '../utils/logger';
+import { deleteFile, deleteDir, isDirectory } from '../utils/file';
+import type { CliConfig } from '../config/types';
 
 export interface DeleteOptions {
 	force?: boolean;

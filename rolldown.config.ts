@@ -10,7 +10,7 @@ const output: RolldownOptions['output'] = {
 };
 
 export default defineConfig({
-	input: './src/index.ts',
+	input: ['./src/index.ts', './src/cli.ts'],
 	output,
 	plugins: [dts()],
 	platform: 'node',
