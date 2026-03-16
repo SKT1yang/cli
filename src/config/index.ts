@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 import type { CliConfig } from './types';
 
-const CONFIG_FILES = ['.clirc.json', 'cli.config.js', 'cli.config.ts', '.cli.config.mts'];
+const CONFIG_FILES = ['.clirc.json', 'cli.config.js', 'cli.config.ts', '.cli.config.mts', 'cli.config.json'];
 
 /**
  * 读取配置文件

@@ -1,5 +1,5 @@
 {
-	"defaultPatterns": ["node_modules/**", "dist/**"],
+	"defaultPatterns": ["node_modules/**"],
 	"force": false,
 	"dryRun": false,
 	"verbose": true
