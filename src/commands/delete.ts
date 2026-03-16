@@ -215,7 +215,6 @@ export async function collectFilesToDelete(patterns: string[], _options: DeleteO
 			cwd: process.cwd(),
 			absolute: true,
 			dot: true,
-			ignore: ['**/node_modules/**', '**/.git/**'],
 		})
 			.then((matchedFiles) => {
 				matchedFiles.forEach((file) => filesToDelete.add(file));

@@ -1,0 +1,17 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug CLI (built JS)",
+			"runtimeExecutable": "node",
+			"args": ["${workspaceFolder}/dist/cli.js", "delete"],
+			"cwd": "${workspaceFolder}",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen",
+			"preLaunchTask": "build",
+			"skipFiles": ["<node_internals>/**"]
+		}
+	]
+}

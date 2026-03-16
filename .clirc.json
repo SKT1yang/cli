@@ -1,6 +1,0 @@
-{
-	"defaultPatterns": ["node_modules/**"],
-	"force": false,
-	"dryRun": false,
-	"verbose": true
-}
