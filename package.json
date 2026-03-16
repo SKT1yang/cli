@@ -56,6 +56,9 @@
 		"rolldown-plugin-dts": "^0.22.5",
 		"typescript": "5.9.3"
 	},
+	"lint-staged": {
+		"renderer": "verbose"
+	},
 	"engines": {
 		"node": ">=24.0.0"
 	}

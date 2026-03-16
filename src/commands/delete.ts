@@ -19,7 +19,7 @@ export function deleteCommand(program: Command, config: CliConfig) {
 		.alias('rm')
 		.alias('del')
 		.description('删除文件和文件夹，支持 glob 模式匹配')
-		.argument('<patterns...>', '要删除的文件或文件夹路径/模式')
+		.argument('[patterns...]', '要删除的文件或文件夹路径/模式', [])
 		.option('-f, --force', '强制删除，不提示确认', config.force)
 		.option('-n, --dry-run', '预览模式，仅显示将要删除的内容', config.dryRun)
 		.option('-v, --verbose', '详细输出模式', config.verbose)
@@ -32,15 +32,22 @@ export function deleteCommand(program: Command, config: CliConfig) {
 					...options,
 				};
 
-				// 如果使用默认配置
+				// 如果没有提供 patterns 且启用了 use-defaults 或配置了 defaultPatterns
 				let targetPatterns = patterns;
-				if (finalOptions.useDefaults && config.defaultPatterns && config.defaultPatterns.length > 0) {
-					targetPatterns = [...config.defaultPatterns, ...patterns];
-				}
-
 				if (targetPatterns.length === 0) {
-					error('请指定要删除的文件或文件夹');
-					process.exit(1);
+					if (finalOptions.useDefaults && config.defaultPatterns && config.defaultPatterns.length > 0) {
+						// 仅使用配置文件中的默认模式
+						targetPatterns = [...config.defaultPatterns];
+					} else if (config.defaultPatterns && config.defaultPatterns.length > 0) {
+						// 自动使用配置文件中的默认模式
+						targetPatterns = [...config.defaultPatterns];
+					} else {
+						error('请指定要删除的文件或文件夹，或在配置文件中设置 defaultPatterns');
+						process.exit(1);
+					}
+				} else if (finalOptions.useDefaults && config.defaultPatterns && config.defaultPatterns.length > 0) {
+					// 合并命令行参数和默认模式
+					targetPatterns = [...config.defaultPatterns, ...patterns];
 				}
 
 				// 收集所有要删除的路径
