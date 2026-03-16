@@ -215,6 +215,7 @@ export async function collectFilesToDelete(patterns: string[], _options: DeleteO
 			cwd: process.cwd(),
 			absolute: true,
 			dot: true,
+			onlyFiles: false,
 		})
 			.then((matchedFiles) => {
 				matchedFiles.forEach((file) => filesToDelete.add(file));
