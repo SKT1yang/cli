@@ -62,6 +62,7 @@ npm run test:debug
 ```
 
 然后在 VSCode 中：
+
 1. 在 `src/commands/delete.ts` 或其他源文件中设置断点
 2. 运行调试命令
 3. 按回车键触发执行
@@ -69,13 +70,13 @@ npm run test:debug
 
 ## 可用测试场景
 
-| 场景名称 | 描述 | 删除模式 |
-|---------|------|---------|
-| `basic` | 基础删除测试，删除所有 .txt 文件 | `*.txt` |
-| `mixed` | 混合类型，同时删除文件和文件夹 | `single-file.txt`, `test-folder` |
-| `nested` | 嵌套目录结构删除 | `level1` |
-| `dryrun` | 预览模式，不实际删除 | `*.txt` (dry-run) |
-| `custom` | 使用配置文件自定义 | 由配置定义 |
+| 场景名称 | 描述                             | 删除模式                         |
+| -------- | -------------------------------- | -------------------------------- |
+| `basic`  | 基础删除测试，删除所有 .txt 文件 | `*.txt`                          |
+| `mixed`  | 混合类型，同时删除文件和文件夹   | `single-file.txt`, `test-folder` |
+| `nested` | 嵌套目录结构删除                 | `level1`                         |
+| `dryrun` | 预览模式，不实际删除             | `*.txt` (dry-run)                |
+| `custom` | 使用配置文件自定义               | 由配置定义                       |
 
 ## 配置文件格式
 
@@ -83,19 +84,19 @@ npm run test:debug
 
 ```json
 {
-  "name": "自定义测试",
-  "description": "测试描述",
-  "files": {
-    "file1.txt": "内容 1",
-    "folder1": ["subfile1.txt", "subfile2.txt"]
-  },
-  "patterns": ["*.txt", "folder1"],
-  "options": {
-    "force": true,
-    "dryRun": false,
-    "verbose": true
-  },
-  "cleanupAfter": true
+	"name": "自定义测试",
+	"description": "测试描述",
+	"files": {
+		"file1.txt": "内容 1",
+		"folder1": ["subfile1.txt", "subfile2.txt"]
+	},
+	"patterns": ["*.txt", "folder1"],
+	"options": {
+		"force": true,
+		"dryRun": false,
+		"verbose": true
+	},
+	"cleanupAfter": true
 }
 ```
 
@@ -104,13 +105,13 @@ npm run test:debug
 - **name**: 测试场景名称
 - **description**: 测试场景描述
 - **files**: 要创建的文件和文件夹结构
-  - 字符串值表示创建文件
-  - 数组值表示创建文件夹，数组元素为子文件名
+    - 字符串值表示创建文件
+    - 数组值表示创建文件夹，数组元素为子文件名
 - **patterns**: 删除命令使用的 glob 模式
 - **options**: 删除命令选项
-  - `force`: 强制删除，不提示确认
-  - `dryRun`: 预览模式，不实际删除
-  - `verbose`: 详细输出模式
+    - `force`: 强制删除，不提示确认
+    - `dryRun`: 预览模式，不实际删除
+    - `verbose`: 详细输出模式
 - **cleanupAfter**: 测试完成后是否清理测试目录
 
 ## 测试工具函数
@@ -118,6 +119,7 @@ npm run test:debug
 以下工具函数已抽取到 `utils/helpers.ts`，可在其他测试中使用：
 
 ### setupTestDir()
+
 创建隔离的测试目录
 
 ```typescript
@@ -125,6 +127,7 @@ const testDir = setupTestDir();
 ```
 
 ### cleanupTestDir(dir)
+
 清理指定的测试目录
 
 ```typescript
@@ -132,16 +135,18 @@ cleanupTestDir(testDir);
 ```
 
 ### createTestFiles(baseDir, files)
+
 创建测试文件和文件夹
 
 ```typescript
 createTestFiles(testDir, {
-  'file.txt': 'content',
-  'folder': ['file1.txt', 'file2.txt']
+	'file.txt': 'content',
+	folder: ['file1.txt', 'file2.txt'],
 });
 ```
 
 ### verifyDeletion(baseDir, paths, shouldNotExist)
+
 验证删除结果
 
 ```typescript
@@ -153,16 +158,18 @@ verifyDeletion(testDir, ['file.txt'], false);
 ```
 
 ### runDeleteCommand(cwd, patterns, options)
+
 执行删除命令
 
 ```typescript
 await runDeleteCommand(testDir, ['*.txt'], {
-  force: true,
-  verbose: true
+	force: true,
+	verbose: true,
 });
 ```
 
 ### initTestEnvironment()
+
 初始化测试环境（创建基础目录）
 
 ```typescript
@@ -170,6 +177,7 @@ initTestEnvironment();
 ```
 
 ### cleanupTestEnvironment()
+
 清理整个测试环境
 
 ```typescript
@@ -179,41 +187,47 @@ await cleanupTestEnvironment();
 ## 调试工作流程
 
 1. **准备阶段**
-   ```bash
-   # 选择一个测试场景
-   bun __tests__/manual-test.ts --scenario basic
-   ```
+
+    ```bash
+    # 选择一个测试场景
+    bun __tests__/manual-test.ts --scenario basic
+    ```
 
 2. **设置断点**
-   - 在 VSCode 中打开 `src/commands/delete.ts`
-   - 在感兴趣的代码行设置断点
+    - 在 VSCode 中打开 `src/commands/delete.ts`
+    - 在感兴趣的代码行设置断点
 
 3. **启动调试**
-   ```bash
-   bun --inspect __tests__/manual-test.ts --scenario basic
-   ```
+
+    ```bash
+    bun --inspect __tests__/manual-test.ts --scenario basic
+    ```
 
 4. **触发执行**
-   - 脚本会显示将要执行的命令
-   - 按回车键继续
-   - 调试器会在断点处暂停
+    - 脚本会显示将要执行的命令
+    - 按回车键继续
+    - 调试器会在断点处暂停
 
 5. **检查结果**
-   - 查看测试目录中的文件变化
-   - 或在调试完成后选择清理
+    - 查看测试目录中的文件变化
+    - 或在调试完成后选择清理
 
 ## 常见问题
 
 ### Q: 如何查看测试创建的临时文件？
+
 A: 测试文件位于项目根目录的 `test-temp/` 目录下。可以在测试完成后选择不自动清理，手动查看。
 
 ### Q: 调试时断点没有被命中？
+
 A: 确保使用 `bun --inspect` 启动，并且 VSCode 的调试器已连接。
 
 ### Q: 如何在测试中使用自定义配置？
+
 A: 创建一个 JSON 配置文件，然后使用 `--config` 参数指定。
 
 ### Q: 测试失败后如何清理残留文件？
+
 A: 手动删除 `test-temp/` 目录，或重新运行任意测试场景会自动清理。
 
 ## 最佳实践
