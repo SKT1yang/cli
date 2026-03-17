@@ -11,5 +11,13 @@
 	},
 	"[jsonc]": {
 		"editor.defaultFormatter": "oxc.oxc-vscode"
+	},
+	// 文件折叠配置 - 按功能分类
+	"files.exclude": {},
+	// 资源管理器排序配置
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"package.json": "bun.lock, pnpm-lock.yaml, .npmrc, bunfig.toml, cli.config.*",
+		"oxlint.config.json": "oxlint.config.*, oxfmt.config.*, .lintstagedrc.*"
 	}
 }
