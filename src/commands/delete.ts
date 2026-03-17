@@ -216,6 +216,7 @@ export async function collectFilesToDelete(patterns: string[], _options: DeleteO
 			absolute: true,
 			dot: true,
 			onlyFiles: false,
+			ignore: ['**/.git/**'],
 		})
 			.then((matchedFiles) => {
 				matchedFiles.forEach((file) => filesToDelete.add(file));
