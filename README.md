@@ -112,102 +112,102 @@ npm install @shuiyangsuan/cli
 ### 基础用法
 
 ```typescript
-import { executeDelete, readConfig } from '@shuiyangsuan/cli';
+import { executeDelete, readConfig } from '@shuiyangsuan/cli'
 
 // 读取配置
-const config = await readConfig();
+const config = await readConfig()
 
 // 执行删除
 const result = await executeDelete(['node_modules', 'dist'], config, {
 	force: true, // 强制删除，不提示确认
 	verbose: true, // 详细输出
-});
+})
 
-console.log(`成功删除 ${result.deletedCount} 个文件`);
-console.log('删除的文件:', result.deletedFiles);
+console.log(`成功删除 ${result.deletedCount} 个文件`)
+console.log('删除的文件:', result.deletedFiles)
 ```
 
 ### 预览模式
 
 ```typescript
-import { executeDelete, readConfig } from '@shuiyangsuan/cli';
+import { executeDelete, readConfig } from '@shuiyangsuan/cli'
 
-const config = await readConfig();
+const config = await readConfig()
 
 // 预览将要删除的内容，不实际删除
 const result = await executeDelete(['**/*.log', 'dist'], config, {
 	dryRun: true,
 	verbose: true,
-});
+})
 
-console.log('将要删除的文件:', result.deletedFiles);
+console.log('将要删除的文件:', result.deletedFiles)
 ```
 
 ### 仅收集文件列表
 
 ```typescript
-import { collectFilesToDelete } from '@shuiyangsuan/cli';
+import { collectFilesToDelete } from '@shuiyangsuan/cli'
 
 // 仅收集匹配的文件列表，不执行删除
-const files = await collectFilesToDelete(['**/*.ts', '**/*.js'], {});
+const files = await collectFilesToDelete(['**/*.ts', '**/*.js'], {})
 
-console.log('匹配的文件:');
-files.forEach((file) => console.log(`  - ${file}`));
+console.log('匹配的文件:')
+files.forEach((file) => console.log(`  - ${file}`))
 ```
 
 ### 在构建脚本中使用
 
 ```typescript
 // build.ts
-import { executeDelete, readConfig } from '@shuiyangsuan/cli';
-import { execSync } from 'child_process';
+import { executeDelete, readConfig } from '@shuiyangsuan/cli'
+import { execSync } from 'child_process'
 
 async function build() {
-	const config = await readConfig();
+	const config = await readConfig()
 
 	// 清理旧的构建产物
 	await executeDelete(['dist', 'build'], config, {
 		force: true,
 		verbose: true,
-	});
+	})
 
 	// 执行构建
-	execSync('tsc', { stdio: 'inherit' });
+	execSync('tsc', { stdio: 'inherit' })
 
-	console.log('构建完成!');
+	console.log('构建完成!')
 }
 
-build().catch(console.error);
+build().catch(console.error)
 ```
 
 ### 完整示例 - 带错误处理
 
 ```typescript
-import { executeDelete, readConfig, type DeleteResult } from '@shuiyangsuan/cli';
+import { executeDelete, readConfig, type DeleteResult } from '@shuiyangsuan/cli'
 
 async function cleanup() {
 	try {
-		const config = await readConfig();
+		const config = await readConfig()
 
 		const result: DeleteResult = await executeDelete(['node_modules', 'dist', '**/*.log'], config, {
 			force: false, // 需要确认
 			verbose: true, // 详细输出
-		});
+		})
 
-		console.log('✅ 清理完成!');
-		console.log(`成功：${result.deletedCount}, 失败：${result.failedCount}`);
+		console.log('✅ 清理完成!')
+		console.log(`成功：${result.deletedCount}, 失败：${result.failedCount}`)
 
 		if (result.errors.length > 0) {
-			console.error('错误信息:');
-			result.errors.forEach((err) => console.error(`  - ${err}`));
+			console.error('错误信息:')
+			result.errors.forEach((err) => console.error(`  - ${err}`))
 		}
 	} catch (error) {
-		console.error('清理失败:', (error as Error).message);
-		process.exit(1);
+		console.error('清理失败:', (error as Error).message)
+		process.exit(1)
 	}
 }
 
-cleanup();
+cleanup()
 ```
 
 ### API 文档
@@ -264,7 +264,7 @@ import type {
 	DeleteOptions, // 删除选项
 	DeleteResult, // 删除结果
 	CliConfig, // 配置类型
-} from '@shuiyangsuan/cli';
+} from '@shuiyangsuan/cli'
 ```
 
 ## 📝 配置文件

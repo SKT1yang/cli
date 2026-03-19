@@ -38,8 +38,8 @@
 		"prepublishOnly": "pnpm check && pnpm build && pnpm test && npm version patch",
 		"test": "bun test",
 		"check": "pnpm lint && pnpm fmt",
-		"lint": "oxlint -c oxlint.config.json",
-		"fmt": "oxfmt --write -c oxfmt.config.json",
+		"lint": "oxlint -c oxlint.config.ts",
+		"fmt": "oxfmt --write -c oxfmt.config.ts",
 		"prepare": "husky"
 	},
 	"dependencies": {

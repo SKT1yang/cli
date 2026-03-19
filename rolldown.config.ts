@@ -1,5 +1,5 @@
-import { defineConfig, type RolldownOptions } from 'rolldown';
-import { dts } from 'rolldown-plugin-dts';
+import { defineConfig, type RolldownOptions } from 'rolldown'
+import { dts } from 'rolldown-plugin-dts'
 
 const output: RolldownOptions['output'] = {
 	sourcemap: true,
@@ -7,11 +7,11 @@ const output: RolldownOptions['output'] = {
 	minify: false,
 	cleanDir: true,
 	dir: 'dist',
-};
+}
 
 export default defineConfig({
 	input: ['./src/index.ts', './src/cli.ts'],
 	output,
 	plugins: [dts()],
 	platform: 'node',
-});
+})
