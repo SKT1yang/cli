@@ -1,5 +1,5 @@
 import { Command } from 'commander';
-import fg from 'fast-glob';
+import { glob } from 'tinyglobby';
 import { existsSync } from 'fs';
 import { resolve } from 'path';
 import { log, error, warn, success, info } from '../utils/logger';
@@ -211,7 +211,7 @@ export async function collectFilesToDelete(patterns: string[], _options: DeleteO
 		}
 
 		// 使用 glob 匹配
-		return fg(pattern, {
+		return glob(pattern, {
 			cwd: process.cwd(),
 			absolute: true,
 			dot: true,

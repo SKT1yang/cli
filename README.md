@@ -414,7 +414,7 @@ yangguodong
 
 - **TypeScript** - 类型安全的 JavaScript 超集
 - **commander** - CLI 框架
-- **fast-glob** - 快速的 glob 模式匹配
+- **tinyglobby** - 快速的 glob 模式匹配
 - **Rolldown** - 构建工具
 - **Bun Test** - 测试框架
 - **oxlint** - 代码检查
