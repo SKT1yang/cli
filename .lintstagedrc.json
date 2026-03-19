@@ -1,6 +1,4 @@
 {
 	"*.{ts,tsx,js,jsx}": ["oxfmt --write -c oxfmt.config.json", "oxlint -c oxlint.config.json --fix"],
-	"*.{json,jsonc}": ["oxfmt --write -c oxfmt.config.json"],
-	"*.md": ["oxfmt --write -c oxfmt.config.json"],
-	"*.{toml,yaml,yml}": ["oxfmt --write -c oxfmt.config.json"]
+	"*.{json,jsonc}": ["oxfmt --write -c oxfmt.config.json"]
 }

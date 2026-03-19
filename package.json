@@ -44,16 +44,16 @@
 	},
 	"dependencies": {
 		"commander": "14.0.3",
-		"fast-glob": "3.3.3"
+		"tinyglobby": "0.2.15"
 	},
 	"devDependencies": {
 		"@types/node": "25.5.0",
-		"husky": "^9.1.7",
-		"lint-staged": "^16.3.3",
-		"oxfmt": "^0.40.0",
-		"oxlint": "^1.55.0",
-		"rolldown": "latest",
-		"rolldown-plugin-dts": "^0.22.5",
+		"husky": "9.1.7",
+		"lint-staged": "16.4.0",
+		"oxfmt": "0.41.0",
+		"oxlint": "1.56.0",
+		"rolldown": "1.0.0-rc.10",
+		"rolldown-plugin-dts": "0.22.5",
 		"typescript": "5.9.3"
 	},
 	"lint-staged": {
